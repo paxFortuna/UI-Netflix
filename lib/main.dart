@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_netflix/routes.dart';
 import 'package:ui_netflix/screens/splash_screen/splash_screen.dart';
 import 'package:ui_netflix/utils/theme.dart';
 
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: theme,
-      home: const SplashScreen(),
+      initialRoute: SplashScreen.routeName,
+      routes: route,
     );
   }
 }

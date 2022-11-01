@@ -20,9 +20,9 @@ class _MainScreensState extends State<MainScreens> {
 
   int _selectedIndex = 0;
   List pages = [
-    HomeScreen(),
-    ComingScreen(),
-    ContentsListScreen(),
+    const HomeScreen(),
+    const ComingScreen(),
+    const ContentsListScreen(),
   ];
 
   @override
