@@ -22,7 +22,7 @@ class _MainScreensState extends State<MainScreens> {
   List pages = [
     const HomeScreen(),
     const ComingScreen(),
-    const ContentsListScreen(),
+    ContentsListScreen(),
   ];
 
   @override

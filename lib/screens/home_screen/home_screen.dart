@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -30,20 +32,23 @@ class _HomeScreenState extends State<HomeScreen> {
       "assets/images/the_book_of_fish_poster.jpg",
     ];
 
-    ScrollController _backController = ScrollController();
-    ScrollController _frontController = ScrollController();
+    int rand = Random().nextInt(4) + 1;
+
+
+    ScrollController backController = ScrollController();
+    ScrollController frontController = ScrollController();
 
     return Scaffold(
         body: Stack(
       children: [
         SingleChildScrollView(
-          controller: _backController,
+          controller: backController,
           child: Column(
             children: [
               Stack(
                 children: [
                   Image(
-                    image: AssetImage(posters[0]),
+                    image: AssetImage(posters[rand]),
                     height: appSize.height * 0.6 +
                         (const SliverAppBar().toolbarHeight * 2),
                     width: double.infinity,
@@ -76,15 +81,15 @@ class _HomeScreenState extends State<HomeScreen> {
         SafeArea(
           child: NotificationListener(
             onNotification: (ScrollNotification scrollInfo) {
-              if (_frontController.offset <= appSize.height) {
-                _backController.jumpTo(_frontController.offset);
+              if (frontController.offset <= appSize.height) {
+                backController.jumpTo(frontController.offset);
                 return true;
               } else {
                 return false;
               }
             },
             child: CustomScrollView(
-              controller: _frontController,
+              controller: frontController,
               slivers: [
                 SliverAppBar(
                   backgroundColor: Colors.transparent,
@@ -139,6 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SliverToBoxAdapter(
                   child: GestureDetector(
+                    // modal sheet 올라오면 기존 화면이 투명해진다
                     behavior: HitTestBehavior.translucent,
                     // modal bottom sheet 호출
                     onTap: () {
@@ -377,7 +383,6 @@ class _HomeScreenState extends State<HomeScreen> {
               top: 10.0,
               child: GestureDetector(
                 onTap: () {
-                  // 2
                   Navigator.pop(context);
                 },
                 child: Container(
