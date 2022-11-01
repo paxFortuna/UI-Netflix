@@ -28,7 +28,9 @@ class ProfileCard extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder:(context) => const MainScreens()),
+          MaterialPageRoute(
+            builder: (context) => const MainScreens(),
+          ),
         );
         // Navigator.pushNamed(context, MainScreens.routeName);
       },

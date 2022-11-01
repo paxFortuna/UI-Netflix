@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/nav_item.dart';
+import '../models/nav_item.dart';
 import '../utils/constants.dart';
 import 'commingScreen/coming_screen.dart';
 import 'contentsListScreen/contents_list_screen.dart';

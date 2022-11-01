@@ -26,23 +26,41 @@ class ProfileScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Text(
-              "모두의플레이를 시청할 프로필을 선택하세요.",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18.0,
+            Flexible(
+              flex: 1,
+              child: Center(
+                child: Image.asset(
+                  'assets/images/tarot.png',
+                  height: 250,
+                  width: 250,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-            const SizedBox(height: 25.0),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30.0),
-              child: Wrap(
-                spacing: 25.0,
+            Flexible(
+              flex: 1,
+              child: Column(
                 children: [
-                  ProfileCard(),
-                  const AddCard(),
+                  const Text(
+                    "모두의플레이를 시청할 프로필을 선택하세요.",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.0,
+                    ),
+                  ),
+                  const SizedBox(height: 25.0),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                    child: Wrap(
+                      spacing: 25.0,
+                      children: const [
+                        ProfileCard(),
+                        AddCard(),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
